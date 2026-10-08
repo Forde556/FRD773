@@ -1,0 +1,158 @@
+/* ==========================================================================
+   GlowButton Component (أزرار التوهج النيون ثلاثية الأبعاد)
+   Based on Uiverse.io by InfinityLoopGames with Rich Clinical Color Themes
+   ========================================================================== */
+
+/* الأساسي (الافتراضي: السيان الطبي المائي) */
+.glowbutton {
+  --glow-color: rgb(176, 252, 255);
+  --glow-spread-color: rgba(123, 251, 255, 0.781);
+  --enhanced-glow-color: rgb(206, 255, 255);
+  --btn-color: rgb(61, 127, 136);
+
+  border: 0.22em solid var(--glow-color);
+  padding: 0.75em 2em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
+}
+
+.glowbutton::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.glowbutton:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.glowbutton:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+
+/* ==========================================================================
+   تنويع الألوان (Color Palettes)
+   ========================================================================== */
+
+/* 1. البنفسجي الإمبراطوري (Royal Purple) */
+.glowbutton.purple,
+.glowbutton-purple {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+}
+
+/* 2. السيان التورقوازي لطب الأسنان (Dental Teal / Cyan) */
+.glowbutton.cyan,
+.glowbutton-cyan {
+  --glow-color: rgb(176, 252, 255);
+  --glow-spread-color: rgba(123, 251, 255, 0.781);
+  --enhanced-glow-color: rgb(206, 255, 255);
+  --btn-color: rgb(13, 148, 136);
+}
+
+/* 3. الزمردي الجراحي (Surgical Emerald) */
+.glowbutton.emerald,
+.glowbutton-emerald {
+  --glow-color: rgb(167, 243, 208);
+  --glow-spread-color: rgba(52, 211, 153, 0.781);
+  --enhanced-glow-color: rgb(209, 250, 229);
+  --btn-color: rgb(16, 120, 90);
+}
+
+/* 4. العنبر والذهب الأكاديمي (Amber Gold) */
+.glowbutton.amber,
+.glowbutton-amber {
+  --glow-color: rgb(254, 240, 138);
+  --glow-spread-color: rgba(251, 191, 36, 0.781);
+  --enhanced-glow-color: rgb(254, 252, 232);
+  --btn-color: rgb(161, 98, 7);
+}
+
+/* 5. الياقوت الوردي الفوشي (Ruby Rose / Magenta) */
+.glowbutton.ruby,
+.glowbutton-ruby {
+  --glow-color: rgb(254, 205, 232);
+  --glow-spread-color: rgba(244, 114, 182, 0.781);
+  --enhanced-glow-color: rgb(253, 232, 244);
+  --btn-color: rgb(157, 23, 77);
+}
+
+/* 6. الأزرق الملكي العميق (Deep Sapphire Blue) */
+.glowbutton.sapphire,
+.glowbutton-sapphire {
+  --glow-color: rgb(191, 219, 254);
+  --glow-spread-color: rgba(96, 165, 250, 0.781);
+  --enhanced-glow-color: rgb(239, 246, 255);
+  --btn-color: rgb(30, 64, 175);
+}
+
+/* 7. الأبيض الماسي اللؤلؤي (Diamond Pearl White) */
+.glowbutton.pearl,
+.glowbutton-pearl {
+  --glow-color: rgb(255, 255, 255);
+  --glow-spread-color: rgba(226, 232, 240, 0.85);
+  --enhanced-glow-color: rgb(248, 250, 252);
+  --btn-color: rgb(51, 65, 85);
+}
+
+/* ==========================================================================
+   أحجام الأزرار (Size Variants)
+   ========================================================================== */
+.glowbutton.sm {
+  padding: 0.45em 1.25em;
+  font-size: 13px;
+  border-width: 0.18em;
+}
+
+.glowbutton.md {
+  padding: 0.7em 2em;
+  font-size: 15px;
+  border-width: 0.22em;
+}
+
+.glowbutton.lg {
+  padding: 1em 3em;
+  font-size: 17px;
+  border-width: 0.25em;
+}

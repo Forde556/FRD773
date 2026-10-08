@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Uiverse.io by sahilxkhadka - Animated Download & Print Lecture Button
+   زر طباعة وتحميل الملزمة التفاعلي مع أيقونة متجهة وتولتيب عائم
+   ========================================================================== */
+
+.uiverse-download-btn {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background-color: rgba(6, 9, 17, 0.85);
+  color: #f1f1f1;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.28s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  user-select: none;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.uiverse-download-btn:hover {
+  background-color: rgba(15, 23, 42, 0.95);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 25px -5px rgba(56, 189, 248, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.uiverse-download-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.uiverse-download-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.uiverse-download-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* Floating Tooltip at the bottom */
+.uiverse-download-tooltip {
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  pointer-events: none;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background-color: rgba(6, 9, 17, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 100;
+}
+
+.uiverse-download-btn:hover .uiverse-download-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Variant for Direct Print */
+.uiverse-download-btn.print-mode:hover {
+  border-color: #2dd4bf;
+  box-shadow:
+    0 10px 25px -5px rgba(45, 212, 191, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.uiverse-download-btn.print-mode .uiverse-download-tooltip {
+  border-color: rgba(45, 212, 191, 0.35);
+  color: #2dd4bf;
+}

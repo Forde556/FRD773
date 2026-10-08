@@ -1,0 +1,105 @@
+/* ==========================================================================
+   From Uiverse.io by satyamchaudharydev — Domino Falling Spinner
+   Adapted with clinical medical glow and proper centering
+   ========================================================================== */
+
+.domino-spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.domino-spinner {
+  position: relative;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px; /* offset for the spans */
+}
+
+.domino-spinner span {
+  position: absolute;
+  top: 50%;
+  left: var(--left, 10px);
+  width: 32px;
+  height: 6px;
+  background: var(--text-main);
+  border-radius: 3px;
+  animation: dominos 1s ease infinite;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+  transition: background-color var(--trans-fast);
+}
+
+html[data-theme='night'] .domino-spinner span {
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+html[data-theme='day'] .domino-spinner span {
+  background: #0d9488;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.3);
+}
+
+.domino-spinner span:nth-child(1) {
+  --left: 80px;
+  animation-delay: 0.125s;
+}
+
+.domino-spinner span:nth-child(2) {
+  --left: 70px;
+  animation-delay: 0.3s;
+}
+
+.domino-spinner span:nth-child(3) {
+  --left: 60px;
+  left: 60px;
+  animation-delay: 0.425s;
+}
+
+.domino-spinner span:nth-child(4) {
+  --left: 50px;
+  left: 50px;
+  animation-delay: 0.54s;
+}
+
+.domino-spinner span:nth-child(5) {
+  --left: 40px;
+  left: 40px;
+  animation-delay: 0.665s;
+}
+
+.domino-spinner span:nth-child(6) {
+  --left: 30px;
+  left: 30px;
+  animation-delay: 0.79s;
+}
+
+.domino-spinner span:nth-child(7) {
+  --left: 20px;
+  left: 20px;
+  animation-delay: 0.915s;
+}
+
+.domino-spinner span:nth-child(8) {
+  --left: 10px;
+  left: 10px;
+}
+
+@keyframes dominos {
+  50% {
+    opacity: 0.6;
+  }
+
+  75% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  80% {
+    opacity: 1;
+  }
+}

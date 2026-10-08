@@ -1,0 +1,96 @@
+﻿/* From Uiverse.io by Vosoone */ 
+.cyber-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.cyber-loader-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.grid-line {
+  stroke: #1e293b;
+  stroke-width: 0.5;
+}
+
+.browser-frame {
+  fill: #0b0f19;
+  stroke: #334155;
+  stroke-width: 1;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.9));
+}
+
+.browser-top {
+  fill: #131d2e;
+}
+
+.loading-text {
+  font-family: 'Inter', 'Cairo', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  fill: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.skeleton {
+  fill: #1e293b;
+  rx: 4;
+  ry: 4;
+  animation: pulse 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.02));
+}
+
+@keyframes pulse {
+  0% {
+    fill: #1e293b;
+  }
+  50% {
+    fill: #334155;
+  }
+  100% {
+    fill: #1e293b;
+  }
+}
+
+.trace-flow {
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 120 600;
+  stroke-dashoffset: 720;
+  animation: flow 4.5s linear infinite;
+  opacity: 0.95;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px currentColor) blur(0.5px);
+  color: #00ccff;
+}
+
+.trace-flow:nth-child(1) {
+  stroke: url(#traceGradient1);
+}
+.trace-flow:nth-child(2) {
+  stroke: url(#traceGradient2);
+}
+.trace-flow:nth-child(3) {
+  stroke: url(#traceGradient3);
+}
+.trace-flow:nth-child(4) {
+  stroke: url(#traceGradient4);
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 720;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,220 @@
+/* ==========================================================================
+   كود التحميل الخاص بمنصة "الأسـهـل بطب الأسـنان"
+   Animated Sequential Loader with Masked Chromatic Gradient
+   ========================================================================== */
+
+/* إعدادات الحاوية الأساسية */
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: auto;
+  margin: 2rem auto;
+  font-family: "Cairo", "Tajawal", "Poppins", sans-serif;
+  font-size: 1.6em;
+  font-weight: 700;
+  user-select: none;
+  color: #fff;
+  direction: rtl;
+  letter-spacing: 0.05em;
+}
+
+/* في حال رغبت بتكبير الحاوية */
+.loader-wrapper.scale-2 {
+  transform: scale(1.6);
+  transform-origin: center center;
+}
+
+/* الطبقة الملونة المتحركة في الخلفية */
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: transparent;
+  pointer-events: none;
+  mask: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 6px,
+    black 7px,
+    black 8px
+  );
+  -webkit-mask: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 6px,
+    black 7px,
+    black 8px
+  );
+}
+
+/* التدرج اللوني - خيار 1: طابع سريري طب أسنان (أزرق ملكي، سماوي، أبيض لؤلؤي، تركواز) */
+.loader.medical::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 50% 50%, #38bdf8 0%, transparent 50%),
+    radial-gradient(circle at 45% 45%, #0284c7 0%, transparent 45%),
+    radial-gradient(circle at 55% 55%, #0d9488 0%, transparent 45%),
+    radial-gradient(circle at 45% 55%, #2dd4bf 0%, transparent 45%),
+    radial-gradient(circle at 55% 45%, #ffffff 0%, transparent 45%);
+  mask: radial-gradient(
+    circle at 50% 50%,
+    transparent 0%,
+    transparent 10%,
+    black 25%
+  );
+  -webkit-mask: radial-gradient(
+    circle at 50% 50%,
+    transparent 0%,
+    transparent 10%,
+    black 25%
+  );
+  animation:
+    transform-animation 2s infinite alternate,
+    opacity-animation 4s infinite;
+  animation-timing-function: cubic-bezier(0.6, 0.8, 0.5, 1);
+}
+
+/* التدرج اللوني - خيار 2: ألوان أصلية مشعة حيوية */
+.loader.vibrant::after,
+.loader:not(.medical)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 50% 50%, #ff0 0%, transparent 50%),
+    radial-gradient(circle at 45% 45%, #f00 0%, transparent 45%),
+    radial-gradient(circle at 55% 55%, #0ff 0%, transparent 45%),
+    radial-gradient(circle at 45% 55%, #0f0 0%, transparent 45%),
+    radial-gradient(circle at 55% 45%, #00f 0%, transparent 45%);
+  mask: radial-gradient(
+    circle at 50% 50%,
+    transparent 0%,
+    transparent 10%,
+    black 25%
+  );
+  -webkit-mask: radial-gradient(
+    circle at 50% 50%,
+    transparent 0%,
+    transparent 10%,
+    black 25%
+  );
+  animation:
+    transform-animation 2s infinite alternate,
+    opacity-animation 4s infinite;
+  animation-timing-function: cubic-bezier(0.6, 0.8, 0.5, 1);
+}
+
+/* حركات الخلفية */
+@keyframes transform-animation {
+  0% { transform: translate(-55%); }
+  100% { transform: translate(55%); }
+}
+
+@keyframes opacity-animation {
+  0%, 100% { opacity: 0; }
+  15% { opacity: 1; }
+  65% { opacity: 0; }
+}
+
+/* إعدادات ظهور الحروف */
+.loader-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: loader-letter-anim 4s infinite linear;
+  z-index: 2;
+  color: #ffffff;
+  position: relative;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+}
+
+/* مسافات الكلمات بين الحروف */
+.loader-letter.space {
+  width: 0.5em;
+  opacity: 0;
+  animation: none;
+}
+
+/* توقيت ظهور كل حرف بالترتيب (يدعم حتى 25 حرفاً لتغطية "الأسهل بطب الأسنان") */
+.loader-letter:nth-child(1)  { animation-delay: 0.08s; }
+.loader-letter:nth-child(2)  { animation-delay: 0.16s; }
+.loader-letter:nth-child(3)  { animation-delay: 0.24s; }
+.loader-letter:nth-child(4)  { animation-delay: 0.32s; }
+.loader-letter:nth-child(5)  { animation-delay: 0.40s; }
+.loader-letter:nth-child(6)  { animation-delay: 0.48s; }
+.loader-letter:nth-child(7)  { animation-delay: 0.56s; }
+.loader-letter:nth-child(8)  { animation-delay: 0.64s; }
+.loader-letter:nth-child(9)  { animation-delay: 0.72s; }
+.loader-letter:nth-child(10) { animation-delay: 0.80s; }
+.loader-letter:nth-child(11) { animation-delay: 0.88s; }
+.loader-letter:nth-child(12) { animation-delay: 0.96s; }
+.loader-letter:nth-child(13) { animation-delay: 1.04s; }
+.loader-letter:nth-child(14) { animation-delay: 1.12s; }
+.loader-letter:nth-child(15) { animation-delay: 1.20s; }
+.loader-letter:nth-child(16) { animation-delay: 1.28s; }
+.loader-letter:nth-child(17) { animation-delay: 1.36s; }
+.loader-letter:nth-child(18) { animation-delay: 1.44s; }
+.loader-letter:nth-child(19) { animation-delay: 1.52s; }
+.loader-letter:nth-child(20) { animation-delay: 1.60s; }
+.loader-letter:nth-child(21) { animation-delay: 1.68s; }
+.loader-letter:nth-child(22) { animation-delay: 1.76s; }
+.loader-letter:nth-child(23) { animation-delay: 1.84s; }
+.loader-letter:nth-child(24) { animation-delay: 1.92s; }
+.loader-letter:nth-child(25) { animation-delay: 2.00s; }
+
+/* حركة ظهور واختفاء الحروف */
+@keyframes loader-letter-anim {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+    text-shadow: 0 0 12px #38bdf8, 0 0 24px #0284c7;
+    transform: scale(1.15) translateY(-3px);
+  }
+  20% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* شاشة التحميل الكاملة المستقلة (Splash / Overlay Screen) */
+.minhaj-splash-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, #0d1527 0%, #060911 100%);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  transition: opacity 0.5s ease;
+}
+
+.minhaj-splash-subtitle {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

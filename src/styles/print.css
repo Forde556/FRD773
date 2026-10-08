@@ -1,0 +1,111 @@
+/* ==========================================================================
+   MINHAJ — Dedicated Print Stylesheet (Pixel-Perfect A4 Export)
+   Strict page-break rules: cards, diagrams & notes never cut across sheets.
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 12mm 15mm 12mm;
+  }
+
+  /* Force clean print rendering */
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #0F172A !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    font-size: 11pt !important;
+    line-height: 1.55 !important;
+    color: #0F172A !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide interactive UI */
+  .living-canvas-container,
+  .app-navbar,
+  .interactive-toolbar,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .theme-toggle-btn,
+  .quota-pill,
+  .editor-toolbox,
+  .nav-tabs,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Display print header & containers */
+  .print-only {
+    display: block !important;
+  }
+
+  .print-document {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Page break rules — prevent awkward cuts */
+  .print-slide,
+  .print-card,
+  .slide-card,
+  .print-block,
+  .print-figure,
+  .print-pearl {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 18pt !important;
+    border: 1pt solid #CBD5E1 !important;
+    border-radius: 8pt !important;
+    padding: 14pt !important;
+    background: #FFFFFF !important;
+  }
+
+  .page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  /* Clean headings */
+  h1, h2, h3, h4 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #0D9488 !important; /* Deep clinical teal */
+  }
+
+  /* Badges in print */
+  .badge-clinical {
+    border: 1pt solid #64748B !important;
+    padding: 2pt 6pt !important;
+    font-size: 8pt !important;
+  }
+
+  /* Figures & diagrams */
+  img, svg {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Preserved facts styling in print */
+  .fact {
+    border: 1pt solid #CBD5E1 !important;
+    background: #F8FAFC !important;
+    font-weight: bold !important;
+    padding: 1pt 3pt !important;
+  }
+
+  /* Hyperlinks without messy print URLs */
+  a[href]::after {
+    content: none !important;
+  }
+}
